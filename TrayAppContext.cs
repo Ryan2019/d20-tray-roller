@@ -60,7 +60,7 @@ namespace taskbar_roller
             _trayIcon.Text = $"Last roll: {roll}";
             _trayIcon.BalloonTipTitle = "D20 Result";
             _trayIcon.BalloonTipText = $"You rolled: {roll}";
-            _trayIcon.BalloonTipIcon = ToolTipIcon.Info;
+            _trayIcon.BalloonTipIcon = ToolTipIcon.None;
             _trayIcon.ShowBalloonTip(2000);
         }
 
