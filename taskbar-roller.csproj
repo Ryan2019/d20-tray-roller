@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <RootNamespace>taskbar_roller</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <!-- This will make is to my chosen icon shows up in Task Manager-->
+  <PropertyGroup>
+    <ApplicationIcon>Assets\Icons\dice-twenty-faces-twenty.ico</ApplicationIcon>
+  </PropertyGroup>
+  <!--This will make sure my icon is copied with the .exe is used-->
+  <ItemGroup>
+    <Content Include="Assets\Icons\dice-twenty-faces-twenty.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
