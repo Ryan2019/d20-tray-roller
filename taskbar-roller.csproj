@@ -13,8 +13,6 @@
   </PropertyGroup>
   <!--This will make sure my icon is copied with the .exe is used-->
   <ItemGroup>
-    <Content Include="Assets\Icons\dice-twenty-faces-twenty.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="Assets\Icons\dice-twenty-faces-twenty.ico" />
   </ItemGroup>
 </Project>

@@ -13,13 +13,23 @@ namespace taskbar_roller
 
         public TrayAppContext()
         {
-            string iconPath = Path.Combine(
-                AppContext.BaseDirectory,
-                "Assets",
-                "Icons",
-                "dice-twenty-faces-twenty.ico"
+            // Removing the following method of obtaining the tray icon alongside the exe in favor of embedding the .ico with the exe
+            // string iconPath = Path.Combine(
+            //    AppContext.BaseDirectory,
+            //    "Assets",
+            //    "Icons",
+            //    "dice-twenty-faces-twenty.ico"
+            //);
+            // Icon appIcon = File.Exists(iconPath) ? new Icon(iconPath) : SystemIcons.Application;
+
+            // This code tells the assembly to embedd the icon into the exe
+            var asm = typeof(TrayAppContext).Assembly;
+            using var stream = asm.GetManifestResourceStream(
+                "taskbar_roller.Assets.Icons.dice-twenty-faces-twenty.ico"
             );
-            Icon appIcon = File.Exists(iconPath) ? new Icon(iconPath) : SystemIcons.Application;
+            Icon appIcon = stream != null ? new Icon(stream) : SystemIcons.Application;
+
+            // Right click menu
             var menu = new ContextMenuStrip();
             var rollItem = new ToolStripMenuItem("Roll D20", null, (_, __) => ShowRoll());
             var exitItem = new ToolStripMenuItem("Exit", null, (_, __) => ExitApp());
